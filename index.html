@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="이상현 전략 파트너 포트폴리오. 사업계획서, IR Deck, 온라인 마케팅 구조화 설계.">
+    <title>LEE SANGHYUN — Strategic Partner & Planner</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Pretendard Font & Serif for Editorial touch -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#F9F9F8',
+                            100: '#F5F5F0',
+                            200: '#E6E6DF',
+                            800: '#292524',
+                            900: '#1C1917',
+                        },
+                        brand: {
+                            black: '#111111',
+                            grey: '#6B6A68',
+                            accent: '#2563EB', // 아주 은은한 블루만 링크나 아주 작은 요소에 제한적으로 사용
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #F9F9F8;
+            color: #111111;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 미니멀 페이드업 애니메이션 */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* 가는 선 장식 (에디토리얼 느낌) */
+        .hairline {
+            height: 1px;
+            background-color: rgba(17, 17, 17, 0.15);
+            width: 100%;
+        }
+        
+        /* 텍스트 하이라이트 (잡지형 밑줄) */
+        .text-underline {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: rgba(17,17,17,0.3);
+            transition: text-decoration-color 0.3s;
+        }
+        .text-underline:hover {
+            text-decoration-color: rgba(17,17,17,1);
+        }
+        
+        /* 버튼 스타일 최소화 */
+        .btn-editorial {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #111;
+            padding: 0.875rem 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: transparent;
+            color: #111;
+            transition: all 0.3s ease;
+        }
+        .btn-editorial:hover {
+            background: #111;
+            color: #fff;
+        }
+        .btn-editorial-solid {
+            background: #111;
+            color: #fff;
+        }
+        .btn-editorial-solid:hover {
+            background: transparent;
+            color: #111;
+        }
+        
+        /* 이미지 프레임 스타일 */
+        .image-placeholder {
+            position: relative;
+            background-color: #E6E6DF;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-placeholder::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMCIvPjxwYXRoIGQ9Ik0wIDBoNHY0SDB6IiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz48L3N2Zz4=');
+            opacity: 0.8;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (미니멀) -->
+    <header class="fixed top-0 w-full z-50 mix-blend-difference text-white">
+        <div class="px-6 py-6 md:px-12 md:py-8 flex justify-between items-start">
+            <div class="text-sm font-semibold tracking-wide uppercase">
+                Sanghyun Lee. <br>
+                <span class="font-normal opacity-70 mt-1 block">Strategic Partner</span>
+            </div>
+            
+            <nav class="hidden md:flex gap-10 text-xs font-medium uppercase tracking-[0.1em]">
+                <a href="#about" class="hover:opacity-60 transition-opacity">About</a>
+                <a href="#expertise" class="hover:opacity-60 transition-opacity">Expertise</a>
+                <a href="#works" class="hover:opacity-60 transition-opacity">Works</a>
+                <a href="#contact" class="hover:opacity-60 transition-opacity">Contact</a>
+            </nav>
+
+            <button class="md:hidden text-xs uppercase tracking-widest font-semibold border border-white/20 px-4 py-2 rounded-full">Menu</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col justify-between">
+            <div class="flex flex-col justify-center flex-grow max-w-5xl">
+                
+                <!-- 메인 텍스트 -->
+                <div class="pt-10 lg:pt-0 fade-up">
+                    <span class="block text-xs font-semibold uppercase tracking-[0.2em] text-brand-grey mb-8">Business Planning & Structure</span>
+                    <h1 class="text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[1.05] font-light tracking-[-0.03em] mb-8">
+                        Shaping <br>
+                        Ideas into <br>
+                        <span class="font-serif italic text-brand-grey">Conviction.</span>
+                    </h1>
+                    
+                    <div class="max-w-md pl-4 border-l border-black/20">
+                        <p class="text-[1.05rem] leading-[1.7] text-brand-grey">
+                            단순한 아이디어를 넘어, 실제 투자자와 시장이 납득할 수 있는 가장 견고한 비즈니스 프레임을 기획합니다.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- 하단 스크롤 인디케이터 -->
+            <div class="mt-20 fade-up delay-300">
+                <a href="#about" class="inline-flex text-[10px] uppercase font-bold tracking-[0.2em] items-center gap-4 hover:opacity-60 transition-opacity">
+                    Scroll to discover
+                    <span class="w-12 h-[1px] bg-black"></span>
+                </a>
+            </div>
+        </section>
+
+        <div class="hairline max-w-[95%] mx-auto"></div>
+
+        <!-- 2. THE STORY (About) -->
+        <section id="about" class="py-32 lg:py-48 px-6 md:px-12">
+            <div class="grid lg:grid-cols-[0.4fr_1fr] gap-12 lg:gap-32">
+                <div class="fade-up">
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-grey sticky top-32">01 / The Story</h2>
+                </div>
+                
+                <div class="fade-up">
+                    <h3 class="text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.2] font-light tracking-[-0.02em] mb-12 max-w-4xl">
+                        "보기 좋은 문서를 만드는 것이 아니라, <br class="hidden md:block">
+                        <span class="font-serif italic">평가자가 무엇을 보고 판단하는지</span>에 맞춰 <br class="hidden md:block">
+                        구조를 설계하는 것이 제 역할입니다."
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-10 md:gap-20 text-[1.05rem] leading-[1.8] text-brand-grey">
+                        <div>
+                            <p class="mb-6">
+                                수많은 창업가와 대표님들이 훌륭한 비즈니스를 가지고 있으면서도, 이를 글로 옮길 때 어려움을 겪습니다. 저는 사업계획서, IR Deck, 온라인 마케팅 전략 수립의 중심에서 <strong>대표님의 아이디어를 시장의 언어로 번역</strong>하는 일을 합니다.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                정부지원사업, 창업지원 프로그램, 기술사업화 문서까지. 문서 한 장의 화려함보다 실제 심사자와 투자자가 <a href="#" class="text-underline">명확하게 이해할 수 있는 메시지 설계</a>에 우선순위를 둡니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-black/10 pt-8">
+                        <div>
+                            <p class="text-3xl font-light mb-1">95<span class="text-sm">%</span></p>
+                            <p class="text-xs uppercase tracking-widest text-brand-grey font-semibold">설득 만족도</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-light mb-1">36</p>
+                            <p class="text-xs uppercase tracking-widest text-brand-grey font-semibold">수행 프로젝트</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-light mb-1">4</p>
+                            <p class="text-xs uppercase tracking-widest text-brand-grey font-semibold">주요 전문 영역</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EXPERTISE (Table / Listing approach) -->
+        <section id="expertise" class="py-32 bg-stone-900 text-stone-50 px-6 md:px-12">
+            <div class="grid lg:grid-cols-[0.4fr_1fr] gap-12 lg:gap-32">
+                <div class="fade-up">
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">02 / Expertise</h2>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="border-t border-stone-800">
+                        <!-- Item 1 -->
+                        <div class="py-12 border-b border-stone-800 grid md:grid-cols-[1fr_2fr] gap-6 items-start group">
+                            <h3 class="text-2xl md:text-3xl font-light text-white group-hover:pl-4 transition-all duration-300">사업계획서 기획</h3>
+                            <div class="text-stone-400">
+                                <p class="mb-4 text-lg leading-relaxed">정부지원사업(예창패, 초창패 등), 창업지원 프로그램, 기술사업화 문서까지 평가 관점에 맞춘 최적의 구조로 고도화합니다.</p>
+                                <div class="flex gap-4 text-[10px] uppercase tracking-[0.1em]">
+                                    <span class="text-stone-500">Business Planning</span>
+                                    <span class="text-stone-500">BM Design</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="py-12 border-b border-stone-800 grid md:grid-cols-[1fr_2fr] gap-6 items-start group">
+                            <h3 class="text-2xl md:text-3xl font-light text-white group-hover:pl-4 transition-all duration-300">IR Deck 스토리라인</h3>
+                            <div class="text-stone-400">
+                                <p class="mb-4 text-lg leading-relaxed">자금 조달을 위한 발표 및 투자 검토 프레젠테이션. 시장성부터 성장 전략까지 투자자가 원하는 흐름을 논리적으로 직조합니다.</p>
+                                <div class="flex gap-4 text-[10px] uppercase tracking-[0.1em]">
+                                    <span class="text-stone-500">Pitch Deck</span>
+                                    <span class="text-stone-500">Investment Logic</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="py-12 border-b border-stone-800 grid md:grid-cols-[1fr_2fr] gap-6 items-start group">
+                            <h3 class="text-2xl md:text-3xl font-light text-white group-hover:pl-4 transition-all duration-300">사업성 & 리스크 분석</h3>
+                            <div class="text-stone-400">
+                                <p class="mb-4 text-lg leading-relaxed">내부의 시선에 매몰되지 않도록, 제3자(고객 및 전문가)의 관점에서 아이템의 경쟁력을 진단하고 예상 질문에 대응합니다.</p>
+                                <div class="flex gap-4 text-[10px] uppercase tracking-[0.1em]">
+                                    <span class="text-stone-500">Risk Analysis</span>
+                                    <span class="text-stone-500">Evaluation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="py-12 border-b border-stone-800 grid md:grid-cols-[1fr_2fr] gap-6 items-start group">
+                            <h3 class="text-2xl md:text-3xl font-light text-white group-hover:pl-4 transition-all duration-300">온라인 마케팅 기획</h3>
+                            <div class="text-stone-400">
+                                <p class="mb-4 text-lg leading-relaxed">브랜드 포지셔닝부터 콘텐츠 기획, 전환 중심의 랜딩페이지 마케팅 구조를 실무형 관점으로 전략화합니다.</p>
+                                <div class="flex gap-4 text-[10px] uppercase tracking-[0.1em]">
+                                    <span class="text-stone-500">Digital Marketing</span>
+                                    <span class="text-stone-500">Conversion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SELECTED WORKS (Minimalist layout) -->
+        <section id="works" class="py-32 lg:py-48 px-6 md:px-12 bg-stone-100">
+            <div class="grid lg:grid-cols-[0.4fr_1fr] gap-12 lg:gap-32 mb-20 fade-up">
+                <div>
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-grey">03 / Selected Works</h2>
+                </div>
+                <div>
+                    <h3 class="text-3xl md:text-5xl font-light tracking-[-0.02em] mb-6">프로젝트 사례</h3>
+                    <p class="text-brand-grey">보안상 사업 모델의 핵심 내용이 배제된, 수행 범위 및 구조 변경 내역 중심의 요약분입니다.</p>
+                </div>
+            </div>
+
+            <!-- Work 1 -->
+            <div class="fade-up mb-24 lg:mb-32">
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-7">
+                        <div class="w-full aspect-[4/3] mb-6 relative overflow-hidden bg-stone-200">
+                            <img src="./assets/cover1.png" alt="IR Pitch Deck Project" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" />
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 md:pl-8 flex flex-col justify-center h-full pt-4">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-brand-grey mb-4 block">Startup Funding</span>
+                        <h4 class="text-3xl font-light mb-6 leading-tight">시드 투자유치를 위한 <br>IR Pitch Deck 구축</h4>
+                        <p class="text-brand-grey leading-relaxed mb-8">
+                            단순 기능 나열에 그쳤던 초기 자료를 전면 개편. 시장 문제의 심각성을 정의하고, 해결책의 J커브 성장 가능성을 시각화하는 데 집중하여 투자 심의용 스토리라인을 완성했습니다.
+                        </p>
+                        
+                        <div class="pt-6 border-t border-black/10">
+                            <p class="text-xs font-semibold uppercase tracking-[0.1em] mb-4">Core Contribution</p>
+                            <ul class="text-sm text-brand-grey space-y-2">
+                                <li>— BM의 핵심 수익 구조 명확화</li>
+                                <li>— 프레젠테이션 흐름 7단계 논리 점검</li>
+                                <li>— 핵심 성과 지표(KPI) 강조 장표 기획</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work 2 -->
+            <div class="fade-up mb-24 lg:mb-32">
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-5 md:pr-8 flex flex-col justify-center h-full pt-4 order-2 md:order-1">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-brand-grey mb-4 block">Government Support</span>
+                        <h4 class="text-3xl font-light mb-6 leading-tight">초기창업패키지 <br>사업계획서 고도화</h4>
+                        <p class="text-brand-grey leading-relaxed mb-8">
+                            뛰어난 기술력을 심사위원이 이해하기 쉬운 언어로 번역. 차별성과 시장 안착 가능성을 정량적 구도로 보여주어 지원사업 평가지표에 최적화된 문서를 설계했습니다.
+                        </p>
+                        
+                        <div class="pt-6 border-t border-black/10">
+                            <p class="text-xs font-semibold uppercase tracking-[0.1em] mb-4">Core Contribution</p>
+                            <ul class="text-sm text-brand-grey space-y-2">
+                                <li>— 기술성 중심에서 사업성 중심의 스토리 변경</li>
+                                <li>— 경쟁사 대비 우위요소 구조화 표 도출</li>
+                                <li>— 평가 항목별 채점 요건 대응 문단 정리</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <div class="w-full aspect-[4/3] mb-6 relative overflow-hidden bg-stone-200">
+                            <img src="./assets/cover2.png" alt="Business Plan Project" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-up">
+                <a href="#contact" class="text-sm uppercase tracking-widest font-semibold border-b border-black pb-1 hover:opacity-60 transition-opacity">
+                    모든 작업물의 진행 과정 문의하기
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. HOW IT WORKS (Process) -->
+        <section class="py-32 lg:py-48 px-6 md:px-12 border-t border-black/10">
+            <div class="grid lg:grid-cols-[0.4fr_1fr] gap-12 lg:gap-32">
+                <div class="fade-up">
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-grey sticky top-32">04 / Process</h2>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl md:text-5xl font-light tracking-[-0.02em] mb-20 fade-up">가장 간결하고 확실한 <br class="hidden md:block">협업 방식</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-x-12 gap-y-16">
+                        <div class="fade-up">
+                            <p class="text-sm font-semibold tracking-widest text-brand-grey uppercase mb-6 pb-4 border-b border-black/10">Step 01. 진단</p>
+                            <h4 class="text-xl font-medium mb-3">상황 및 목적 파악</h4>
+                            <p class="text-brand-grey">
+                                의뢰받은 대상(아이템)의 현재 상태를 1:1로 진단합니다. 누구를 설득해야 하며, 결과물의 사용 목적이 무엇인지 최우선으로 검열합니다.
+                            </p>
+                        </div>
+                        
+                        <div class="fade-up delay-100">
+                            <p class="text-sm font-semibold tracking-widest text-brand-grey uppercase mb-6 pb-4 border-b border-black/10">Step 02. 제안</p>
+                            <h4 class="text-xl font-medium mb-3">구조 프레임 확립</h4>
+                            <p class="text-brand-grey">
+                                어떤 순서와 논리로 상대방을 설득할 것인지 핵심 뼈대(목차 및 프레임워크)를 세우고 합의합니다.
+                            </p>
+                        </div>
+                        
+                        <div class="fade-up">
+                            <p class="text-sm font-semibold tracking-widest text-brand-grey uppercase mb-6 pb-4 border-b border-black/10">Step 03. 작업</p>
+                            <h4 class="text-xl font-medium mb-3">콘텐츠 기획 및 구체화</h4>
+                            <p class="text-brand-grey">
+                                합의된 방향에 맞춰 세부 초안을 작성합니다. 디자인이 입혀지기 전, 가장 순수한 형태의 논리와 카피라이팅을 뾰족하게 가다듬습니다.
+                            </p>
+                        </div>
+                        
+                        <div class="fade-up delay-100">
+                            <p class="text-sm font-semibold tracking-widest text-brand-grey uppercase mb-6 pb-4 border-b border-black/10">Step 04. 완성</p>
+                            <h4 class="text-xl font-medium mb-3">검토 및 최종 보완</h4>
+                            <p class="text-brand-grey">
+                                작업물을 상호 검토하고, 질문이 나올 수 있는 허점들을 찾아내어 문구와 흐름을 방어적으로, 때론 공격적으로 보완하여 전달합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CONTACT (Big Typography) -->
+        <section id="contact" class="bg-[#111111] text-white pt-32 pb-16 px-6 md:px-12 flex flex-col items-center text-center">
+            
+            <div class="fade-up w-full max-w-5xl">
+                <h4 class="text-xs uppercase tracking-[0.2em] text-stone-500 mb-8 font-semibold">Start A Conversation</h4>
+                <a href="mailto:ekffush@gmail.com" class="block w-full border-b border-white/20 pb-8 hover:border-white transition-colors group">
+                    <!-- 거대하고 유려한 이메일 링크 -->
+                    <h2 class="text-[clamp(2.5rem,8vw,8rem)] italic font-serif leading-[1.1] font-light tracking-tight group-hover:text-stone-300 transition-colors">
+                        ekffush@gmail.com
+                    </h2>
+                </a>
+            </div>
+            
+            <div class="w-full max-w-5xl flex flex-col md:flex-row justify-between items-center mt-12 gap-8 fade-up delay-100">
+                <div class="text-left flex flex-col gap-2">
+                    <p class="text-xs uppercase tracking-widest text-stone-500 font-semibold mb-1">Direct Line</p>
+                    <a href="tel:01097721877" class="text-xl font-medium hover:opacity-60 transition-opacity">010 - 9772 - 1877</a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-sm text-stone-400 max-w-sm">
+                        현재 맞닥뜨린 문서의 문제점, 투자 전략, 온라인 콘텐츠의 방향성을 가볍게 질문해 주셔도 좋습니다. 
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer minimal -->
+    <footer class="bg-black text-white border-t border-white/10 px-6 py-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest uppercase font-semibold text-stone-500">
+        <div>
+            © 2026. Sanghyun Lee. All rights reserved.
+        </div>
+        <div>
+            Strategic Business Planner.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Intersection Observer for fade-up animations (Editorial style, slower and graceful)
+        const fadeObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, fadeObserverOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            fadeObserver.observe(el);
+        });
+
+        // Header blend mode mix tweak on scroll if necessary (optional)
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // If you want to change header logic, place here. 
+                // Currently using mix-blend-difference so it adapts to background.
+            }
+        });
+    </script>
+</body>
+</html>
